@@ -43,7 +43,6 @@
             this.lblXi = new System.Windows.Forms.Label();
             this.txtXd = new System.Windows.Forms.TextBox();
             this.lblXd = new System.Windows.Forms.Label();
-            this.lblXr = new System.Windows.Forms.Label();
             this.btnBiseccion = new System.Windows.Forms.Button();
             this.btnReglaF = new System.Windows.Forms.Button();
             this.btnNewRap = new System.Windows.Forms.Button();
@@ -175,15 +174,6 @@
             this.lblXd.TabIndex = 9;
             this.lblXd.Text = "Xd =";
             // 
-            // lblXr
-            // 
-            this.lblXr.AutoSize = true;
-            this.lblXr.Location = new System.Drawing.Point(69, 253);
-            this.lblXr.Name = "lblXr";
-            this.lblXr.Size = new System.Drawing.Size(41, 24);
-            this.lblXr.TabIndex = 11;
-            this.lblXr.Text = "Xr =";
-            // 
             // btnBiseccion
             // 
             this.btnBiseccion.Location = new System.Drawing.Point(475, 49);
@@ -202,6 +192,7 @@
             this.btnReglaF.TabIndex = 14;
             this.btnReglaF.Text = "Regla Falsa";
             this.btnReglaF.UseVisualStyleBackColor = true;
+            this.btnReglaF.Click += new System.EventHandler(this.btnReglaF_Click);
             // 
             // btnNewRap
             // 
@@ -230,7 +221,6 @@
             this.Controls.Add(this.btnNewRap);
             this.Controls.Add(this.btnReglaF);
             this.Controls.Add(this.btnBiseccion);
-            this.Controls.Add(this.lblXr);
             this.Controls.Add(this.txtXd);
             this.Controls.Add(this.lblXd);
             this.Controls.Add(this.txtXi);
@@ -272,7 +262,6 @@
         private System.Windows.Forms.Label lblXi;
         private System.Windows.Forms.TextBox txtXd;
         private System.Windows.Forms.Label lblXd;
-        private System.Windows.Forms.Label lblXr;
         private System.Windows.Forms.Button btnBiseccion;
         private System.Windows.Forms.Button btnReglaF;
         private System.Windows.Forms.Button btnNewRap;
