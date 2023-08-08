@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Calculus;
 
 namespace Analisis_numerico
 {
@@ -17,6 +18,9 @@ namespace Analisis_numerico
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new BaseForm());
+
+            
+
         }
     }
 }
