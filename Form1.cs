@@ -69,8 +69,8 @@ namespace Analisis_numerico
                         error = Math.Abs((Xr - XrAnt) / Xr);
                         if (Math.Abs(analizadorFunciones.EvaluaFx(Xr))<tolerancia || error < tolerancia)
                         {
-                            MessageBox.Show("La raiz es Xr. Su valor es " + Xr + " realizando " + i + " iteraciones con un error de " +
-                                Math.Round(error, 10));
+                            MessageBox.Show("La raiz es Xr. Su valor es " + Math.Round(Xr,6) + " realizando " + i + " iteraciones con un error de " +
+                                string.Format("{0:F6}", error));
                             break;
                         }
                         else
@@ -88,8 +88,8 @@ namespace Analisis_numerico
                     }
                     if (Math.Abs(analizadorFunciones.EvaluaFx(Xr)) >= tolerancia && error >= tolerancia)
                     {
-                        MessageBox.Show("La raiz terminó siendo Xr. Su valor es " + Xr + " realizando " + iteraciones + " iteraciones, siendo todas, con un error de " +
-                            Math.Round(error, 10));
+                        MessageBox.Show("La raiz terminó siendo Xr. Su valor es " + Math.Round(Xr, 6) + " realizando " + iteraciones + " iteraciones, siendo todas, con un error de " +
+                            string.Format("{0:F6}", error));
                     }
                 }              
             }
@@ -141,8 +141,9 @@ namespace Analisis_numerico
                         error = Math.Abs((Xr - XrAnt) / Xr);
                         if (Math.Abs(analizadorFunciones.EvaluaFx(Xr)) < tolerancia || error < tolerancia)
                         {
-                            MessageBox.Show("La raiz es Xr. Su valor es " + Xr + " realizando " + i + " iteraciones con un error de " +
-                                Math.Round(error, 10));
+
+                            MessageBox.Show("La raiz es Xr. Su valor es " + Math.Round(Xr, 6) + " realizando " + i + " iteraciones con un error de " +
+                                string.Format("{0:F6}", error));
                             break;
                         }
                         else
@@ -160,9 +161,66 @@ namespace Analisis_numerico
                     }
                     if (Math.Abs(analizadorFunciones.EvaluaFx(Xr)) >= tolerancia && error >= tolerancia)
                     {
-                        MessageBox.Show("La raiz terminó siendo Xr. Su valor es " + Xr + " realizando " + iteraciones + " iteraciones, siendo todas, con un error de " +
-                            Math.Round(error, 10));
+                        MessageBox.Show("La raiz terminó siendo Xr. Su valor es " + Math.Round(Xr, 6) + " realizando " + iteraciones + " iteraciones, siendo todas, con un error de " +
+                            string.Format("{0:F6}", error));
                     }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Error de sintaxis en la funcion. Verifique lo escrito.");
+            }
+        }
+
+        private void btnNewRap_Click(object sender, EventArgs e)
+        {
+            Calculo analizadorFunciones = new Calculo();
+            string funcion = txtFuncion.Text;
+            double tolerancia = double.Parse(txtTole.Text);
+            int iteraciones = int.Parse(txtIteracion.Text);
+            double Xini = double.Parse(txtXini.Text);
+
+            if (analizadorFunciones.Sintaxis(funcion, 'x'))
+            {
+                double Error = 0;
+                double Xr = 0;
+                for(int i = 1; i <= iteraciones; i++)
+                {
+                    if (Math.Abs(analizadorFunciones.EvaluaFx(Xini))<tolerancia)
+                    {
+                        MessageBox.Show("La raiz es " + Math.Round(Xini,6) + " (Evaluar funcion) y sus iteraciones son "+ i +".Con error de "+
+                            string.Format("{0:F6}", Error));
+                        break;
+                    }
+                    else
+                    {
+                        double Deriv = (analizadorFunciones.EvaluaFx(Xini + tolerancia) - analizadorFunciones.EvaluaFx(Xini)) / tolerancia;
+                        if(Math.Abs(Deriv)<tolerancia)
+                        {
+                            MessageBox.Show("ERROR. El metodo diverge.");
+                            break;
+                        }
+                        else
+                        {
+                            Xr = (Xini - (analizadorFunciones.EvaluaFx(Xini) / Deriv));
+                            Error = Math.Abs((Xr - Xini)/ Xr);
+                            if(Error < tolerancia)
+                            {
+                                MessageBox.Show("La raiz es " + Math.Round(Xr,6) + " (Por error) y sus iteraciones son " + i +". El error es "+
+                                    string.Format("{0:F6}", Error));
+                                break;
+                            }
+                            else
+                            {
+                                Xini = Xr;
+                            }
+                        }
+                    }
+                }
+                if (Math.Abs(analizadorFunciones.EvaluaFx(Xr)) >= tolerancia && Error >= tolerancia)
+                {
+                    MessageBox.Show("La raiz terminó siendo Xr. Su valor es " + Math.Round(Xr, 6) + " realizando " + iteraciones + " iteraciones, siendo todas, con un error de " +
+                        string.Format("{0:F6}", Error));
                 }
             }
             else

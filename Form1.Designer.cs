@@ -47,6 +47,8 @@
             this.btnReglaF = new System.Windows.Forms.Button();
             this.btnNewRap = new System.Windows.Forms.Button();
             this.btnSecante = new System.Windows.Forms.Button();
+            this.txtXini = new System.Windows.Forms.TextBox();
+            this.lblXini = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,7 +63,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(10, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(654, 29);
+            this.menuStrip1.Size = new System.Drawing.Size(654, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -69,28 +71,28 @@
             // 
             this.unidad1TSMI.Font = new System.Drawing.Font("Arial", 10F);
             this.unidad1TSMI.Name = "unidad1TSMI";
-            this.unidad1TSMI.Size = new System.Drawing.Size(88, 23);
+            this.unidad1TSMI.Size = new System.Drawing.Size(88, 24);
             this.unidad1TSMI.Text = "Unidad 1";
             // 
             // unidad2TSMI
             // 
             this.unidad2TSMI.Font = new System.Drawing.Font("Arial", 10F);
             this.unidad2TSMI.Name = "unidad2TSMI";
-            this.unidad2TSMI.Size = new System.Drawing.Size(88, 23);
+            this.unidad2TSMI.Size = new System.Drawing.Size(88, 24);
             this.unidad2TSMI.Text = "Unidad 2";
             // 
             // unidad3TSMI
             // 
             this.unidad3TSMI.Font = new System.Drawing.Font("Arial", 10F);
             this.unidad3TSMI.Name = "unidad3TSMI";
-            this.unidad3TSMI.Size = new System.Drawing.Size(88, 23);
+            this.unidad3TSMI.Size = new System.Drawing.Size(88, 24);
             this.unidad3TSMI.Text = "Unidad 3";
             // 
             // unidad4TSMI
             // 
             this.unidad4TSMI.Font = new System.Drawing.Font("Arial", 10F);
             this.unidad4TSMI.Name = "unidad4TSMI";
-            this.unidad4TSMI.Size = new System.Drawing.Size(88, 23);
+            this.unidad4TSMI.Size = new System.Drawing.Size(88, 24);
             this.unidad4TSMI.Text = "Unidad 4";
             // 
             // lblFuncion
@@ -202,6 +204,7 @@
             this.btnNewRap.TabIndex = 15;
             this.btnNewRap.Text = "Newton-Rapshon";
             this.btnNewRap.UseVisualStyleBackColor = true;
+            this.btnNewRap.Click += new System.EventHandler(this.btnNewRap_Click);
             // 
             // btnSecante
             // 
@@ -212,11 +215,29 @@
             this.btnSecante.Text = "Secante";
             this.btnSecante.UseVisualStyleBackColor = true;
             // 
+            // txtXini
+            // 
+            this.txtXini.Location = new System.Drawing.Point(116, 226);
+            this.txtXini.Name = "txtXini";
+            this.txtXini.Size = new System.Drawing.Size(100, 30);
+            this.txtXini.TabIndex = 18;
+            // 
+            // lblXini
+            // 
+            this.lblXini.AutoSize = true;
+            this.lblXini.Location = new System.Drawing.Point(12, 229);
+            this.lblXini.Name = "lblXini";
+            this.lblXini.Size = new System.Drawing.Size(51, 24);
+            this.lblXini.TabIndex = 17;
+            this.lblXini.Text = "Xini =";
+            // 
             // BaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(654, 398);
+            this.Controls.Add(this.txtXini);
+            this.Controls.Add(this.lblXini);
             this.Controls.Add(this.btnSecante);
             this.Controls.Add(this.btnNewRap);
             this.Controls.Add(this.btnReglaF);
@@ -266,6 +287,8 @@
         private System.Windows.Forms.Button btnReglaF;
         private System.Windows.Forms.Button btnNewRap;
         private System.Windows.Forms.Button btnSecante;
+        private System.Windows.Forms.TextBox txtXini;
+        private System.Windows.Forms.Label lblXini;
     }
 }
 
