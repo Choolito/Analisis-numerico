@@ -71,28 +71,28 @@
             // 
             this.unidad1TSMI.Font = new System.Drawing.Font("Arial", 10F);
             this.unidad1TSMI.Name = "unidad1TSMI";
-            this.unidad1TSMI.Size = new System.Drawing.Size(88, 24);
+            this.unidad1TSMI.Size = new System.Drawing.Size(88, 23);
             this.unidad1TSMI.Text = "Unidad 1";
             // 
             // unidad2TSMI
             // 
             this.unidad2TSMI.Font = new System.Drawing.Font("Arial", 10F);
             this.unidad2TSMI.Name = "unidad2TSMI";
-            this.unidad2TSMI.Size = new System.Drawing.Size(88, 24);
+            this.unidad2TSMI.Size = new System.Drawing.Size(88, 23);
             this.unidad2TSMI.Text = "Unidad 2";
             // 
             // unidad3TSMI
             // 
             this.unidad3TSMI.Font = new System.Drawing.Font("Arial", 10F);
             this.unidad3TSMI.Name = "unidad3TSMI";
-            this.unidad3TSMI.Size = new System.Drawing.Size(88, 24);
+            this.unidad3TSMI.Size = new System.Drawing.Size(88, 23);
             this.unidad3TSMI.Text = "Unidad 3";
             // 
             // unidad4TSMI
             // 
             this.unidad4TSMI.Font = new System.Drawing.Font("Arial", 10F);
             this.unidad4TSMI.Name = "unidad4TSMI";
-            this.unidad4TSMI.Size = new System.Drawing.Size(88, 24);
+            this.unidad4TSMI.Size = new System.Drawing.Size(88, 23);
             this.unidad4TSMI.Text = "Unidad 4";
             // 
             // lblFuncion
@@ -156,9 +156,10 @@
             this.lblXi.AutoSize = true;
             this.lblXi.Location = new System.Drawing.Point(12, 157);
             this.lblXi.Name = "lblXi";
-            this.lblXi.Size = new System.Drawing.Size(39, 24);
+            this.lblXi.Size = new System.Drawing.Size(75, 24);
             this.lblXi.TabIndex = 7;
-            this.lblXi.Text = "Xi =";
+            this.lblXi.Text = "Xi(Xini) =";
+            this.lblXi.Click += new System.EventHandler(this.lblXi_Click);
             // 
             // txtXd
             // 
@@ -214,6 +215,7 @@
             this.btnSecante.TabIndex = 16;
             this.btnSecante.Text = "Secante";
             this.btnSecante.UseVisualStyleBackColor = true;
+            this.btnSecante.Click += new System.EventHandler(this.btnSecante_Click);
             // 
             // txtXini
             // 
