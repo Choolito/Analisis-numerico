@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -21,12 +22,12 @@ namespace Analisis_numerico
                 case "Regla falsa":
                     return (analizadorFunciones.EvaluaFx(Xd) * Xi - analizadorFunciones.EvaluaFx(Xi) * Xd) /
                             (analizadorFunciones.EvaluaFx(Xd) - analizadorFunciones.EvaluaFx(Xi));
-                case "Newton-Rapshon":
+                case "Newton-Raphson":
                     double Xini = Xi;
                     double Deriv = Xd;
                     return (Xini - (analizadorFunciones.EvaluaFx(Xini) / Deriv));
                 case "Secante":
-                    return ((analizadorFunciones.EvaluaFx(Xd) * Xi) - (analizadorFunciones.EvaluaFx(Xi) * Xi)) /
+                    return ((analizadorFunciones.EvaluaFx(Xd) * Xi) - (analizadorFunciones.EvaluaFx(Xi) * Xd)) /
                         (analizadorFunciones.EvaluaFx(Xd) - analizadorFunciones.EvaluaFx(Xi));
                 default: throw new NotImplementedException();
             }
@@ -65,7 +66,7 @@ namespace Analisis_numerico
                         {
                             MessageBox.Show("La raiz es Xr. Su valor es " + Math.Round(Xr, 6) + " realizando " + i + " iteraciones con un error de " +
                                 string.Format("{0:F6}", error));
-                            break;
+
                         }
                         else
                         {
@@ -94,23 +95,26 @@ namespace Analisis_numerico
         }
         public void MetodoAbierto(string metodo, string funcion, double tolerancia, int iteraciones, double Xi, double Xd)
         {
-            //Calculo analizadorFunciones = new Calculo();
-            //string funcion = txtFuncion.Text;
-            //double tolerancia = double.Parse(txtTole.Text);
-            //int iteraciones = int.Parse(txtIteracion.Text);
-            //double Xi = Xi;
-
             if (analizadorFunciones.Sintaxis(funcion, 'x'))
             {
                 double Error = 0;
                 double Xr = 0;
+                if (Math.Abs(analizadorFunciones.EvaluaFx(Xi)) < tolerancia)
+                {
+                    MessageBox.Show("La raiz es " + Math.Round(Xi, 6) + " (Xi)" + ".Con error de " +
+                            string.Format("{0:F6}", Error));
+                }
+                else if (Math.Abs(analizadorFunciones.EvaluaFx(Xd)) < tolerancia && metodo == "Secante")
+                {
+                    MessageBox.Show("La raiz es " + Math.Round(Xd, 6) + " (Xd)" + ".Con error de " +
+                            string.Format("{0:F6}", Error));
+                }
+                double XrAnterior = 0;
                 for (int i = 1; i <= iteraciones; i++)
                 {
-                    if (Math.Abs(analizadorFunciones.EvaluaFx(Xi)) < tolerancia)
+                    if (metodo == "Secante")
                     {
-                        MessageBox.Show("La raiz es " + Math.Round(Xi, 6) + " (Evaluar funcion) y sus iteraciones son " + i + ".Con error de " +
-                            string.Format("{0:F6}", Error));
-                        break;
+                        Xr = CalcularMetodo(metodo, funcion, Xi, Xd);
                     }
                     else
                     {
@@ -120,22 +124,27 @@ namespace Analisis_numerico
                             MessageBox.Show("ERROR. El metodo diverge.");
                             break;
                         }
+                        Xr = CalcularMetodo(metodo, funcion, Xi, Deriv);
+                    }
+                    Error = Math.Abs((Xr - XrAnterior) / Xr);
+                    if (Math.Abs(analizadorFunciones.EvaluaFx(Xr)) < tolerancia || Error < tolerancia)
+                    {
+                        MessageBox.Show("La raiz es " + Math.Round(Xr, 6) + " (Evaluar funcion) y sus iteraciones son " + i + ".Con error de " +
+                            string.Format("{0:F6}", Error));
+                        break;
+                    }
+                    else
+                    {
+                        if (metodo == "Newton-Raphson")
+                        {
+                            Xi = Xr;
+                        }
                         else
                         {
-                            //mandar Xi y Xd=Deriv
-                            Xr = CalcularMetodo(metodo,funcion,Xi,Deriv);
-                            Error = Math.Abs((Xr - Xi) / Xr);
-                            if (Error < tolerancia)
-                            {
-                                MessageBox.Show("La raiz es " + Math.Round(Xr, 6) + " (Por error) y sus iteraciones son " + i + ". El error es " +
-                                    string.Format("{0:F6}", Error));
-                                break;
-                            }
-                            else
-                            {
-                                Xi = Xr;
-                            }
+                            Xi = Xd;
+                            Xd = Xr;
                         }
+                        XrAnterior = Xr;
                     }
                 }
                 if (Math.Abs(analizadorFunciones.EvaluaFx(Xr)) >= tolerancia && Error >= tolerancia)
