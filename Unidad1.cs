@@ -66,7 +66,7 @@ namespace Analisis_numerico
                         {
                             MessageBox.Show("La raiz es Xr. Su valor es " + Math.Round(Xr, 6) + " realizando " + i + " iteraciones con un error de " +
                                 string.Format("{0:F6}", error));
-
+                            break;
                         }
                         else
                         {
@@ -114,6 +114,11 @@ namespace Analisis_numerico
                 {
                     if (metodo == "Secante")
                     {
+                        if(analizadorFunciones.EvaluaFx(Xi) == analizadorFunciones.EvaluaFx(Xd))
+                        {
+                            MessageBox.Show("ERROR. El metodo secante diverge, es paralelo al eje x.Con "+i+" iteraciones.");
+                            break;
+                        }
                         Xr = CalcularMetodo(metodo, funcion, Xi, Xd);
                     }
                     else
@@ -147,6 +152,7 @@ namespace Analisis_numerico
                         XrAnterior = Xr;
                     }
                 }
+                //VER CUANDO SALE POR SECANTE
                 if (Math.Abs(analizadorFunciones.EvaluaFx(Xr)) >= tolerancia && Error >= tolerancia)
                 {
                     MessageBox.Show("La raiz terminó siendo Xr. Su valor es " + Math.Round(Xr, 6) + " realizando " + iteraciones + " iteraciones, siendo todas, con un error de " +
