@@ -114,12 +114,12 @@ namespace Analisis_numerico
                 {
                     if (metodo == "Secante")
                     {
-                        if(analizadorFunciones.EvaluaFx(Xi) == analizadorFunciones.EvaluaFx(Xd))
+                        Xr = CalcularMetodo(metodo, funcion, Xi, Xd);
+                        if (double.IsNaN(Xr))
                         {
-                            MessageBox.Show("ERROR. El metodo secante diverge, es paralelo al eje x.Con "+i+" iteraciones.");
+                            MessageBox.Show("ERROR. El metodo diverge. Es secante el metodo.");
                             break;
                         }
-                        Xr = CalcularMetodo(metodo, funcion, Xi, Xd);
                     }
                     else
                     {
@@ -152,7 +152,6 @@ namespace Analisis_numerico
                         XrAnterior = Xr;
                     }
                 }
-                //VER CUANDO SALE POR SECANTE
                 if (Math.Abs(analizadorFunciones.EvaluaFx(Xr)) >= tolerancia && Error >= tolerancia)
                 {
                     MessageBox.Show("La raiz terminó siendo Xr. Su valor es " + Math.Round(Xr, 6) + " realizando " + iteraciones + " iteraciones, siendo todas, con un error de " +
