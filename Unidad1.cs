@@ -27,6 +27,8 @@ namespace Analisis_numerico
                     double Deriv = Xd;
                     return (Xini - (analizadorFunciones.EvaluaFx(Xini) / Deriv));
                 case "Secante":
+                    double uno = analizadorFunciones.EvaluaFx(Xi);
+                    double dos = analizadorFunciones.EvaluaFx(Xd);
                     return ((analizadorFunciones.EvaluaFx(Xd) * Xi) - (analizadorFunciones.EvaluaFx(Xi) * Xd)) /
                         (analizadorFunciones.EvaluaFx(Xd) - analizadorFunciones.EvaluaFx(Xi));
                 default: throw new NotImplementedException();
@@ -124,14 +126,8 @@ namespace Analisis_numerico
                     else
                     {
                         double Deriv = analizadorFunciones.Dx(Xi);
-                        //Siento que no esta realizando bien la derivada. En lo que entendi, debe realizar la derivada de la funcion ingresante
-                        //y reemplazar por el valor de Xi. Estoy en el ejercicio 2, donde se usa ((2.9999-x)^(1/3))-0.75 y la derivada de esa
-                        //evaludad en el punto Xi=2 que es lo que pide, segun busquedas en internet y ademas de calcular yo por mi cuenta, me tendria que dar
-                        // -0,3333333 y me esta dando -0,000345... Para mi realiza mal la derivada o no se la situacion.
-                        if (Math.Abs(Deriv) < tolerancia)
+                        if (Math.Abs(Deriv) < tolerancia || double.IsNaN(Deriv))
                         {
-                            //Problema y duda si es que esto va. Problema, si esto se cumple 
-                            //luego igual muestra el mensaje.
                             MessageBox.Show("ERROR. El metodo diverge. Es Newton-Rapshon el metodo. En la iteracion "+i);
                             break;
                         }
