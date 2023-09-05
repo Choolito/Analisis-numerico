@@ -28,271 +28,335 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.unidad1TSMI = new System.Windows.Forms.ToolStripMenuItem();
-            this.unidad2TSMI = new System.Windows.Forms.ToolStripMenuItem();
-            this.unidad3TSMI = new System.Windows.Forms.ToolStripMenuItem();
-            this.unidad4TSMI = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblFuncion = new System.Windows.Forms.Label();
-            this.txtFuncion = new System.Windows.Forms.TextBox();
-            this.txtIteracion = new System.Windows.Forms.TextBox();
-            this.lblIter = new System.Windows.Forms.Label();
-            this.txtTole = new System.Windows.Forms.TextBox();
-            this.lblTole = new System.Windows.Forms.Label();
-            this.txtXi = new System.Windows.Forms.TextBox();
-            this.lblXi = new System.Windows.Forms.Label();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.lblTexto = new System.Windows.Forms.Label();
+            this.lblRespuesta = new System.Windows.Forms.Label();
+            this.btnSecante = new System.Windows.Forms.Button();
+            this.btnNewRap = new System.Windows.Forms.Button();
+            this.btnReglaF = new System.Windows.Forms.Button();
+            this.btnBiseccion = new System.Windows.Forms.Button();
             this.txtXd = new System.Windows.Forms.TextBox();
             this.lblXd = new System.Windows.Forms.Label();
-            this.btnBiseccion = new System.Windows.Forms.Button();
-            this.btnReglaF = new System.Windows.Forms.Button();
-            this.btnNewRap = new System.Windows.Forms.Button();
-            this.btnSecante = new System.Windows.Forms.Button();
-            this.lblRespuesta = new System.Windows.Forms.Label();
-            this.lblTexto = new System.Windows.Forms.Label();
-            this.menuStrip1.SuspendLayout();
+            this.txtXi = new System.Windows.Forms.TextBox();
+            this.lblXi = new System.Windows.Forms.Label();
+            this.txtTole = new System.Windows.Forms.TextBox();
+            this.lblTole = new System.Windows.Forms.Label();
+            this.txtIteracion = new System.Windows.Forms.TextBox();
+            this.lblIter = new System.Windows.Forms.Label();
+            this.txtFuncion = new System.Windows.Forms.TextBox();
+            this.lblFuncion = new System.Windows.Forms.Label();
+            this.txtDimension = new System.Windows.Forms.TextBox();
+            this.lblDimension = new System.Windows.Forms.Label();
+            this.btnGenerar = new System.Windows.Forms.Button();
+            this.gBMatriz = new System.Windows.Forms.GroupBox();
+            this.btnCalcular = new System.Windows.Forms.Button();
+            this.lblMetodo = new System.Windows.Forms.Label();
+            this.txtMetodo = new System.Windows.Forms.TextBox();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // tabControl1
             // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.unidad1TSMI,
-            this.unidad2TSMI,
-            this.unidad3TSMI,
-            this.unidad4TSMI});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(10, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(654, 29);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(0, -2);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1018, 527);
+            this.tabControl1.TabIndex = 1;
             // 
-            // unidad1TSMI
+            // tabPage1
             // 
-            this.unidad1TSMI.Font = new System.Drawing.Font("Arial", 10F);
-            this.unidad1TSMI.Name = "unidad1TSMI";
-            this.unidad1TSMI.Size = new System.Drawing.Size(88, 23);
-            this.unidad1TSMI.Text = "Unidad 1";
+            this.tabPage1.Controls.Add(this.lblTexto);
+            this.tabPage1.Controls.Add(this.lblRespuesta);
+            this.tabPage1.Controls.Add(this.btnSecante);
+            this.tabPage1.Controls.Add(this.btnNewRap);
+            this.tabPage1.Controls.Add(this.btnReglaF);
+            this.tabPage1.Controls.Add(this.btnBiseccion);
+            this.tabPage1.Controls.Add(this.txtXd);
+            this.tabPage1.Controls.Add(this.lblXd);
+            this.tabPage1.Controls.Add(this.txtXi);
+            this.tabPage1.Controls.Add(this.lblXi);
+            this.tabPage1.Controls.Add(this.txtTole);
+            this.tabPage1.Controls.Add(this.lblTole);
+            this.tabPage1.Controls.Add(this.txtIteracion);
+            this.tabPage1.Controls.Add(this.lblIter);
+            this.tabPage1.Controls.Add(this.txtFuncion);
+            this.tabPage1.Controls.Add(this.lblFuncion);
+            this.tabPage1.Location = new System.Drawing.Point(4, 33);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1010, 490);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Unidad 1";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // unidad2TSMI
+            // tabPage2
             // 
-            this.unidad2TSMI.Font = new System.Drawing.Font("Arial", 10F);
-            this.unidad2TSMI.Name = "unidad2TSMI";
-            this.unidad2TSMI.Size = new System.Drawing.Size(88, 23);
-            this.unidad2TSMI.Text = "Unidad 2";
-            // 
-            // unidad3TSMI
-            // 
-            this.unidad3TSMI.Font = new System.Drawing.Font("Arial", 10F);
-            this.unidad3TSMI.Name = "unidad3TSMI";
-            this.unidad3TSMI.Size = new System.Drawing.Size(88, 23);
-            this.unidad3TSMI.Text = "Unidad 3";
-            // 
-            // unidad4TSMI
-            // 
-            this.unidad4TSMI.Font = new System.Drawing.Font("Arial", 10F);
-            this.unidad4TSMI.Name = "unidad4TSMI";
-            this.unidad4TSMI.Size = new System.Drawing.Size(88, 23);
-            this.unidad4TSMI.Text = "Unidad 4";
-            // 
-            // lblFuncion
-            // 
-            this.lblFuncion.AutoSize = true;
-            this.lblFuncion.Location = new System.Drawing.Point(12, 49);
-            this.lblFuncion.Name = "lblFuncion";
-            this.lblFuncion.Size = new System.Drawing.Size(82, 24);
-            this.lblFuncion.TabIndex = 1;
-            this.lblFuncion.Text = "Funcion =";
-            this.lblFuncion.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // txtFuncion
-            // 
-            this.txtFuncion.Location = new System.Drawing.Point(116, 46);
-            this.txtFuncion.Name = "txtFuncion";
-            this.txtFuncion.Size = new System.Drawing.Size(100, 30);
-            this.txtFuncion.TabIndex = 2;
-            // 
-            // txtIteracion
-            // 
-            this.txtIteracion.Location = new System.Drawing.Point(116, 82);
-            this.txtIteracion.Name = "txtIteracion";
-            this.txtIteracion.Size = new System.Drawing.Size(100, 30);
-            this.txtIteracion.TabIndex = 4;
-            // 
-            // lblIter
-            // 
-            this.lblIter.AutoSize = true;
-            this.lblIter.Location = new System.Drawing.Point(12, 85);
-            this.lblIter.Name = "lblIter";
-            this.lblIter.Size = new System.Drawing.Size(87, 24);
-            this.lblIter.TabIndex = 3;
-            this.lblIter.Text = "Iteracion =";
-            // 
-            // txtTole
-            // 
-            this.txtTole.Location = new System.Drawing.Point(116, 118);
-            this.txtTole.Name = "txtTole";
-            this.txtTole.Size = new System.Drawing.Size(100, 30);
-            this.txtTole.TabIndex = 6;
-            // 
-            // lblTole
-            // 
-            this.lblTole.AutoSize = true;
-            this.lblTole.Location = new System.Drawing.Point(12, 121);
-            this.lblTole.Name = "lblTole";
-            this.lblTole.Size = new System.Drawing.Size(99, 24);
-            this.lblTole.TabIndex = 5;
-            this.lblTole.Text = "Tolerancia =";
-            // 
-            // txtXi
-            // 
-            this.txtXi.Location = new System.Drawing.Point(116, 154);
-            this.txtXi.Name = "txtXi";
-            this.txtXi.Size = new System.Drawing.Size(100, 30);
-            this.txtXi.TabIndex = 8;
-            // 
-            // lblXi
-            // 
-            this.lblXi.AutoSize = true;
-            this.lblXi.Location = new System.Drawing.Point(12, 157);
-            this.lblXi.Name = "lblXi";
-            this.lblXi.Size = new System.Drawing.Size(75, 24);
-            this.lblXi.TabIndex = 7;
-            this.lblXi.Text = "Xi(Xini) =";
-            this.lblXi.Click += new System.EventHandler(this.lblXi_Click);
-            // 
-            // txtXd
-            // 
-            this.txtXd.Location = new System.Drawing.Point(116, 190);
-            this.txtXd.Name = "txtXd";
-            this.txtXd.Size = new System.Drawing.Size(100, 30);
-            this.txtXd.TabIndex = 10;
-            // 
-            // lblXd
-            // 
-            this.lblXd.AutoSize = true;
-            this.lblXd.Location = new System.Drawing.Point(12, 193);
-            this.lblXd.Name = "lblXd";
-            this.lblXd.Size = new System.Drawing.Size(45, 24);
-            this.lblXd.TabIndex = 9;
-            this.lblXd.Text = "Xd =";
-            // 
-            // btnBiseccion
-            // 
-            this.btnBiseccion.Location = new System.Drawing.Point(475, 49);
-            this.btnBiseccion.Name = "btnBiseccion";
-            this.btnBiseccion.Size = new System.Drawing.Size(148, 37);
-            this.btnBiseccion.TabIndex = 13;
-            this.btnBiseccion.Text = "Biseccion";
-            this.btnBiseccion.UseVisualStyleBackColor = true;
-            this.btnBiseccion.Click += new System.EventHandler(this.btnBiseccion_Click);
-            // 
-            // btnReglaF
-            // 
-            this.btnReglaF.Location = new System.Drawing.Point(475, 92);
-            this.btnReglaF.Name = "btnReglaF";
-            this.btnReglaF.Size = new System.Drawing.Size(148, 37);
-            this.btnReglaF.TabIndex = 14;
-            this.btnReglaF.Text = "Regla Falsa";
-            this.btnReglaF.UseVisualStyleBackColor = true;
-            this.btnReglaF.Click += new System.EventHandler(this.btnReglaF_Click);
-            // 
-            // btnNewRap
-            // 
-            this.btnNewRap.Location = new System.Drawing.Point(475, 135);
-            this.btnNewRap.Name = "btnNewRap";
-            this.btnNewRap.Size = new System.Drawing.Size(148, 37);
-            this.btnNewRap.TabIndex = 15;
-            this.btnNewRap.Text = "Newton-Rapshon";
-            this.btnNewRap.UseVisualStyleBackColor = true;
-            this.btnNewRap.Click += new System.EventHandler(this.btnNewRap_Click);
-            // 
-            // btnSecante
-            // 
-            this.btnSecante.Location = new System.Drawing.Point(475, 178);
-            this.btnSecante.Name = "btnSecante";
-            this.btnSecante.Size = new System.Drawing.Size(148, 37);
-            this.btnSecante.TabIndex = 16;
-            this.btnSecante.Text = "Secante";
-            this.btnSecante.UseVisualStyleBackColor = true;
-            this.btnSecante.Click += new System.EventHandler(this.btnSecante_Click);
-            // 
-            // lblRespuesta
-            // 
-            this.lblRespuesta.AutoSize = true;
-            this.lblRespuesta.Location = new System.Drawing.Point(1, 262);
-            this.lblRespuesta.Name = "lblRespuesta";
-            this.lblRespuesta.Size = new System.Drawing.Size(103, 24);
-            this.lblRespuesta.TabIndex = 17;
-            this.lblRespuesta.Text = "Respuesta =";
+            this.tabPage2.Controls.Add(this.btnCalcular);
+            this.tabPage2.Controls.Add(this.lblMetodo);
+            this.tabPage2.Controls.Add(this.txtMetodo);
+            this.tabPage2.Controls.Add(this.gBMatriz);
+            this.tabPage2.Controls.Add(this.btnGenerar);
+            this.tabPage2.Controls.Add(this.lblDimension);
+            this.tabPage2.Controls.Add(this.txtDimension);
+            this.tabPage2.Location = new System.Drawing.Point(4, 33);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1010, 490);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Unidad 2";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // lblTexto
             // 
             this.lblTexto.AutoSize = true;
-            this.lblTexto.Location = new System.Drawing.Point(112, 262);
+            this.lblTexto.Location = new System.Drawing.Point(123, 261);
             this.lblTexto.Name = "lblTexto";
             this.lblTexto.Size = new System.Drawing.Size(34, 24);
-            this.lblTexto.TabIndex = 18;
+            this.lblTexto.TabIndex = 34;
             this.lblTexto.Text = "null";
+            // 
+            // lblRespuesta
+            // 
+            this.lblRespuesta.AutoSize = true;
+            this.lblRespuesta.Location = new System.Drawing.Point(12, 261);
+            this.lblRespuesta.Name = "lblRespuesta";
+            this.lblRespuesta.Size = new System.Drawing.Size(103, 24);
+            this.lblRespuesta.TabIndex = 33;
+            this.lblRespuesta.Text = "Respuesta =";
+            // 
+            // btnSecante
+            // 
+            this.btnSecante.Location = new System.Drawing.Point(486, 177);
+            this.btnSecante.Name = "btnSecante";
+            this.btnSecante.Size = new System.Drawing.Size(148, 37);
+            this.btnSecante.TabIndex = 32;
+            this.btnSecante.Text = "Secante";
+            this.btnSecante.UseVisualStyleBackColor = true;
+            this.btnSecante.Click += new System.EventHandler(this.btnSecante_Click_1);
+            // 
+            // btnNewRap
+            // 
+            this.btnNewRap.Location = new System.Drawing.Point(486, 134);
+            this.btnNewRap.Name = "btnNewRap";
+            this.btnNewRap.Size = new System.Drawing.Size(148, 37);
+            this.btnNewRap.TabIndex = 31;
+            this.btnNewRap.Text = "Newton-Rapshon";
+            this.btnNewRap.UseVisualStyleBackColor = true;
+            this.btnNewRap.Click += new System.EventHandler(this.btnNewRap_Click_1);
+            // 
+            // btnReglaF
+            // 
+            this.btnReglaF.Location = new System.Drawing.Point(486, 91);
+            this.btnReglaF.Name = "btnReglaF";
+            this.btnReglaF.Size = new System.Drawing.Size(148, 37);
+            this.btnReglaF.TabIndex = 30;
+            this.btnReglaF.Text = "Regla Falsa";
+            this.btnReglaF.UseVisualStyleBackColor = true;
+            this.btnReglaF.Click += new System.EventHandler(this.btnReglaF_Click_1);
+            // 
+            // btnBiseccion
+            // 
+            this.btnBiseccion.Location = new System.Drawing.Point(486, 48);
+            this.btnBiseccion.Name = "btnBiseccion";
+            this.btnBiseccion.Size = new System.Drawing.Size(148, 37);
+            this.btnBiseccion.TabIndex = 29;
+            this.btnBiseccion.Text = "Biseccion";
+            this.btnBiseccion.UseVisualStyleBackColor = true;
+            this.btnBiseccion.Click += new System.EventHandler(this.btnBiseccion_Click_1);
+            // 
+            // txtXd
+            // 
+            this.txtXd.Location = new System.Drawing.Point(127, 189);
+            this.txtXd.Name = "txtXd";
+            this.txtXd.Size = new System.Drawing.Size(100, 30);
+            this.txtXd.TabIndex = 28;
+            // 
+            // lblXd
+            // 
+            this.lblXd.AutoSize = true;
+            this.lblXd.Location = new System.Drawing.Point(23, 192);
+            this.lblXd.Name = "lblXd";
+            this.lblXd.Size = new System.Drawing.Size(45, 24);
+            this.lblXd.TabIndex = 27;
+            this.lblXd.Text = "Xd =";
+            // 
+            // txtXi
+            // 
+            this.txtXi.Location = new System.Drawing.Point(127, 153);
+            this.txtXi.Name = "txtXi";
+            this.txtXi.Size = new System.Drawing.Size(100, 30);
+            this.txtXi.TabIndex = 26;
+            // 
+            // lblXi
+            // 
+            this.lblXi.AutoSize = true;
+            this.lblXi.Location = new System.Drawing.Point(23, 156);
+            this.lblXi.Name = "lblXi";
+            this.lblXi.Size = new System.Drawing.Size(75, 24);
+            this.lblXi.TabIndex = 25;
+            this.lblXi.Text = "Xi(Xini) =";
+            // 
+            // txtTole
+            // 
+            this.txtTole.Location = new System.Drawing.Point(127, 117);
+            this.txtTole.Name = "txtTole";
+            this.txtTole.Size = new System.Drawing.Size(100, 30);
+            this.txtTole.TabIndex = 24;
+            // 
+            // lblTole
+            // 
+            this.lblTole.AutoSize = true;
+            this.lblTole.Location = new System.Drawing.Point(23, 120);
+            this.lblTole.Name = "lblTole";
+            this.lblTole.Size = new System.Drawing.Size(99, 24);
+            this.lblTole.TabIndex = 23;
+            this.lblTole.Text = "Tolerancia =";
+            // 
+            // txtIteracion
+            // 
+            this.txtIteracion.Location = new System.Drawing.Point(127, 81);
+            this.txtIteracion.Name = "txtIteracion";
+            this.txtIteracion.Size = new System.Drawing.Size(100, 30);
+            this.txtIteracion.TabIndex = 22;
+            // 
+            // lblIter
+            // 
+            this.lblIter.AutoSize = true;
+            this.lblIter.Location = new System.Drawing.Point(23, 84);
+            this.lblIter.Name = "lblIter";
+            this.lblIter.Size = new System.Drawing.Size(87, 24);
+            this.lblIter.TabIndex = 21;
+            this.lblIter.Text = "Iteracion =";
+            // 
+            // txtFuncion
+            // 
+            this.txtFuncion.Location = new System.Drawing.Point(127, 45);
+            this.txtFuncion.Name = "txtFuncion";
+            this.txtFuncion.Size = new System.Drawing.Size(100, 30);
+            this.txtFuncion.TabIndex = 20;
+            // 
+            // lblFuncion
+            // 
+            this.lblFuncion.AutoSize = true;
+            this.lblFuncion.Location = new System.Drawing.Point(23, 48);
+            this.lblFuncion.Name = "lblFuncion";
+            this.lblFuncion.Size = new System.Drawing.Size(82, 24);
+            this.lblFuncion.TabIndex = 19;
+            this.lblFuncion.Text = "Funcion =";
+            // 
+            // txtDimension
+            // 
+            this.txtDimension.Location = new System.Drawing.Point(104, 6);
+            this.txtDimension.Name = "txtDimension";
+            this.txtDimension.Size = new System.Drawing.Size(100, 30);
+            this.txtDimension.TabIndex = 0;
+            // 
+            // lblDimension
+            // 
+            this.lblDimension.AutoSize = true;
+            this.lblDimension.Location = new System.Drawing.Point(8, 9);
+            this.lblDimension.Name = "lblDimension";
+            this.lblDimension.Size = new System.Drawing.Size(87, 24);
+            this.lblDimension.TabIndex = 1;
+            this.lblDimension.Text = "Dimension";
+            // 
+            // btnGenerar
+            // 
+            this.btnGenerar.Location = new System.Drawing.Point(210, 6);
+            this.btnGenerar.Name = "btnGenerar";
+            this.btnGenerar.Size = new System.Drawing.Size(81, 30);
+            this.btnGenerar.TabIndex = 2;
+            this.btnGenerar.Text = "Generar";
+            this.btnGenerar.UseVisualStyleBackColor = true;
+            this.btnGenerar.Click += new System.EventHandler(this.btnGenerar_Click);
+            // 
+            // gBMatriz
+            // 
+            this.gBMatriz.Location = new System.Drawing.Point(8, 42);
+            this.gBMatriz.Name = "gBMatriz";
+            this.gBMatriz.Size = new System.Drawing.Size(996, 442);
+            this.gBMatriz.TabIndex = 3;
+            this.gBMatriz.TabStop = false;
+            this.gBMatriz.Enter += new System.EventHandler(this.gBMatriz_Enter);
+            // 
+            // btnCalcular
+            // 
+            this.btnCalcular.Location = new System.Drawing.Point(552, 9);
+            this.btnCalcular.Name = "btnCalcular";
+            this.btnCalcular.Size = new System.Drawing.Size(84, 30);
+            this.btnCalcular.TabIndex = 6;
+            this.btnCalcular.Text = "Calcular";
+            this.btnCalcular.UseVisualStyleBackColor = true;
+            // 
+            // lblMetodo
+            // 
+            this.lblMetodo.AutoSize = true;
+            this.lblMetodo.Location = new System.Drawing.Point(374, 12);
+            this.lblMetodo.Name = "lblMetodo";
+            this.lblMetodo.Size = new System.Drawing.Size(66, 24);
+            this.lblMetodo.TabIndex = 5;
+            this.lblMetodo.Text = "Metodo";
+            // 
+            // txtMetodo
+            // 
+            this.txtMetodo.Location = new System.Drawing.Point(446, 9);
+            this.txtMetodo.Name = "txtMetodo";
+            this.txtMetodo.Size = new System.Drawing.Size(100, 30);
+            this.txtMetodo.TabIndex = 4;
             // 
             // BaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(654, 398);
-            this.Controls.Add(this.lblTexto);
-            this.Controls.Add(this.lblRespuesta);
-            this.Controls.Add(this.btnSecante);
-            this.Controls.Add(this.btnNewRap);
-            this.Controls.Add(this.btnReglaF);
-            this.Controls.Add(this.btnBiseccion);
-            this.Controls.Add(this.txtXd);
-            this.Controls.Add(this.lblXd);
-            this.Controls.Add(this.txtXi);
-            this.Controls.Add(this.lblXi);
-            this.Controls.Add(this.txtTole);
-            this.Controls.Add(this.lblTole);
-            this.Controls.Add(this.txtIteracion);
-            this.Controls.Add(this.lblIter);
-            this.Controls.Add(this.txtFuncion);
-            this.Controls.Add(this.lblFuncion);
-            this.Controls.Add(this.menuStrip1);
+            this.ClientSize = new System.Drawing.Size(1023, 530);
+            this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "BaseForm";
             this.Text = "Analisis numerico";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem unidad1TSMI;
-        private System.Windows.Forms.ToolStripMenuItem unidad2TSMI;
-        private System.Windows.Forms.ToolStripMenuItem unidad3TSMI;
-        private System.Windows.Forms.ToolStripMenuItem unidad4TSMI;
-        private System.Windows.Forms.Label lblFuncion;
-        private System.Windows.Forms.TextBox txtFuncion;
-        private System.Windows.Forms.TextBox txtIteracion;
-        private System.Windows.Forms.Label lblIter;
-        private System.Windows.Forms.TextBox txtTole;
-        private System.Windows.Forms.Label lblTole;
-        private System.Windows.Forms.TextBox txtXi;
-        private System.Windows.Forms.Label lblXi;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Label lblTexto;
+        private System.Windows.Forms.Label lblRespuesta;
+        private System.Windows.Forms.Button btnSecante;
+        private System.Windows.Forms.Button btnNewRap;
+        private System.Windows.Forms.Button btnReglaF;
+        private System.Windows.Forms.Button btnBiseccion;
         private System.Windows.Forms.TextBox txtXd;
         private System.Windows.Forms.Label lblXd;
-        private System.Windows.Forms.Button btnBiseccion;
-        private System.Windows.Forms.Button btnReglaF;
-        private System.Windows.Forms.Button btnNewRap;
-        private System.Windows.Forms.Button btnSecante;
-        private System.Windows.Forms.Label lblRespuesta;
-        private System.Windows.Forms.Label lblTexto;
+        private System.Windows.Forms.TextBox txtXi;
+        private System.Windows.Forms.Label lblXi;
+        private System.Windows.Forms.TextBox txtTole;
+        private System.Windows.Forms.Label lblTole;
+        private System.Windows.Forms.TextBox txtIteracion;
+        private System.Windows.Forms.Label lblIter;
+        private System.Windows.Forms.TextBox txtFuncion;
+        private System.Windows.Forms.Label lblFuncion;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Button btnCalcular;
+        private System.Windows.Forms.Label lblMetodo;
+        private System.Windows.Forms.TextBox txtMetodo;
+        private System.Windows.Forms.GroupBox gBMatriz;
+        private System.Windows.Forms.Button btnGenerar;
+        private System.Windows.Forms.Label lblDimension;
+        private System.Windows.Forms.TextBox txtDimension;
     }
 }
 
