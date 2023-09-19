@@ -30,7 +30,6 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.lblTexto = new System.Windows.Forms.Label();
             this.lblRespuesta = new System.Windows.Forms.Label();
             this.btnSecante = new System.Windows.Forms.Button();
@@ -47,13 +46,14 @@
             this.lblIter = new System.Windows.Forms.Label();
             this.txtFuncion = new System.Windows.Forms.TextBox();
             this.lblFuncion = new System.Windows.Forms.Label();
-            this.txtDimension = new System.Windows.Forms.TextBox();
-            this.lblDimension = new System.Windows.Forms.Label();
-            this.btnGenerar = new System.Windows.Forms.Button();
-            this.gBMatriz = new System.Windows.Forms.GroupBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnCalcular = new System.Windows.Forms.Button();
             this.lblMetodo = new System.Windows.Forms.Label();
-            this.txtMetodo = new System.Windows.Forms.TextBox();
+            this.gBMatriz = new System.Windows.Forms.GroupBox();
+            this.btnGenerar = new System.Windows.Forms.Button();
+            this.lblDimension = new System.Windows.Forms.Label();
+            this.txtDimension = new System.Windows.Forms.TextBox();
+            this.cboxMetodo = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -94,23 +94,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Unidad 1";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.btnCalcular);
-            this.tabPage2.Controls.Add(this.lblMetodo);
-            this.tabPage2.Controls.Add(this.txtMetodo);
-            this.tabPage2.Controls.Add(this.gBMatriz);
-            this.tabPage2.Controls.Add(this.btnGenerar);
-            this.tabPage2.Controls.Add(this.lblDimension);
-            this.tabPage2.Controls.Add(this.txtDimension);
-            this.tabPage2.Location = new System.Drawing.Point(4, 33);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1010, 490);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Unidad 2";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // lblTexto
             // 
@@ -250,21 +233,41 @@
             this.lblFuncion.TabIndex = 19;
             this.lblFuncion.Text = "Funcion =";
             // 
-            // txtDimension
+            // tabPage2
             // 
-            this.txtDimension.Location = new System.Drawing.Point(104, 6);
-            this.txtDimension.Name = "txtDimension";
-            this.txtDimension.Size = new System.Drawing.Size(100, 30);
-            this.txtDimension.TabIndex = 0;
+            this.tabPage2.Controls.Add(this.cboxMetodo);
+            this.tabPage2.Controls.Add(this.btnCalcular);
+            this.tabPage2.Controls.Add(this.lblMetodo);
+            this.tabPage2.Controls.Add(this.gBMatriz);
+            this.tabPage2.Controls.Add(this.btnGenerar);
+            this.tabPage2.Controls.Add(this.lblDimension);
+            this.tabPage2.Controls.Add(this.txtDimension);
+            this.tabPage2.Location = new System.Drawing.Point(4, 33);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1010, 490);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Unidad 2";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // lblDimension
+            // btnCalcular
             // 
-            this.lblDimension.AutoSize = true;
-            this.lblDimension.Location = new System.Drawing.Point(8, 9);
-            this.lblDimension.Name = "lblDimension";
-            this.lblDimension.Size = new System.Drawing.Size(87, 24);
-            this.lblDimension.TabIndex = 1;
-            this.lblDimension.Text = "Dimension";
+            this.btnCalcular.Location = new System.Drawing.Point(573, 9);
+            this.btnCalcular.Name = "btnCalcular";
+            this.btnCalcular.Size = new System.Drawing.Size(84, 30);
+            this.btnCalcular.TabIndex = 6;
+            this.btnCalcular.Text = "Calcular";
+            this.btnCalcular.UseVisualStyleBackColor = true;
+            this.btnCalcular.Click += new System.EventHandler(this.btnCalcular_Click);
+            // 
+            // lblMetodo
+            // 
+            this.lblMetodo.AutoSize = true;
+            this.lblMetodo.Location = new System.Drawing.Point(374, 12);
+            this.lblMetodo.Name = "lblMetodo";
+            this.lblMetodo.Size = new System.Drawing.Size(66, 24);
+            this.lblMetodo.TabIndex = 5;
+            this.lblMetodo.Text = "Metodo";
             // 
             // btnGenerar
             // 
@@ -276,39 +279,32 @@
             this.btnGenerar.UseVisualStyleBackColor = true;
             this.btnGenerar.Click += new System.EventHandler(this.btnGenerar_Click);
             // 
-            // gBMatriz
+            // lblDimension
             // 
-            this.gBMatriz.Location = new System.Drawing.Point(8, 42);
-            this.gBMatriz.Name = "gBMatriz";
-            this.gBMatriz.Size = new System.Drawing.Size(996, 442);
-            this.gBMatriz.TabIndex = 3;
-            this.gBMatriz.TabStop = false;
-            this.gBMatriz.Enter += new System.EventHandler(this.gBMatriz_Enter);
+            this.lblDimension.AutoSize = true;
+            this.lblDimension.Location = new System.Drawing.Point(8, 9);
+            this.lblDimension.Name = "lblDimension";
+            this.lblDimension.Size = new System.Drawing.Size(87, 24);
+            this.lblDimension.TabIndex = 1;
+            this.lblDimension.Text = "Dimension";
             // 
-            // btnCalcular
+            // txtDimension
             // 
-            this.btnCalcular.Location = new System.Drawing.Point(552, 9);
-            this.btnCalcular.Name = "btnCalcular";
-            this.btnCalcular.Size = new System.Drawing.Size(84, 30);
-            this.btnCalcular.TabIndex = 6;
-            this.btnCalcular.Text = "Calcular";
-            this.btnCalcular.UseVisualStyleBackColor = true;
+            this.txtDimension.Location = new System.Drawing.Point(104, 6);
+            this.txtDimension.Name = "txtDimension";
+            this.txtDimension.Size = new System.Drawing.Size(100, 30);
+            this.txtDimension.TabIndex = 0;
             // 
-            // lblMetodo
+            // cboxMetodo
             // 
-            this.lblMetodo.AutoSize = true;
-            this.lblMetodo.Location = new System.Drawing.Point(374, 12);
-            this.lblMetodo.Name = "lblMetodo";
-            this.lblMetodo.Size = new System.Drawing.Size(66, 24);
-            this.lblMetodo.TabIndex = 5;
-            this.lblMetodo.Text = "Metodo";
-            // 
-            // txtMetodo
-            // 
-            this.txtMetodo.Location = new System.Drawing.Point(446, 9);
-            this.txtMetodo.Name = "txtMetodo";
-            this.txtMetodo.Size = new System.Drawing.Size(100, 30);
-            this.txtMetodo.TabIndex = 4;
+            this.cboxMetodo.FormattingEnabled = true;
+            this.cboxMetodo.Items.AddRange(new object[] {
+            "GAUSS-JORDAN",
+            "GAUSS-SEIDEL"});
+            this.cboxMetodo.Location = new System.Drawing.Point(446, 9);
+            this.cboxMetodo.Name = "cboxMetodo";
+            this.cboxMetodo.Size = new System.Drawing.Size(121, 32);
+            this.cboxMetodo.TabIndex = 7;
             // 
             // BaseForm
             // 
@@ -352,11 +348,11 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button btnCalcular;
         private System.Windows.Forms.Label lblMetodo;
-        private System.Windows.Forms.TextBox txtMetodo;
         private System.Windows.Forms.GroupBox gBMatriz;
         private System.Windows.Forms.Button btnGenerar;
         private System.Windows.Forms.Label lblDimension;
         private System.Windows.Forms.TextBox txtDimension;
+        private System.Windows.Forms.ComboBox cboxMetodo;
     }
 }
 

@@ -21,45 +21,8 @@ namespace Analisis_numerico
         private void Form1_Load(object sender, EventArgs e)
         {
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnBiseccion_Click(object sender, EventArgs e)
-        {
-            Unidad1 unidad1 = new Unidad1();
-            unidad1.MetodoCerrado("Biseccion", txtFuncion.Text, double.Parse(txtTole.Text), int.Parse(txtIteracion.Text), double.Parse(txtXi.Text)
-                , double.Parse(txtXd.Text));
-        }
-
-        private void btnReglaF_Click(object sender, EventArgs e)
-        {
-            Unidad1 unidad1 = new Unidad1();
-            unidad1.MetodoCerrado("Regla falsa", txtFuncion.Text, double.Parse(txtTole.Text), int.Parse(txtIteracion.Text), double.Parse(txtXi.Text)
-                , double.Parse(txtXd.Text));
-        }
-
-        private void btnNewRap_Click(object sender, EventArgs e)
-        {
-            Unidad1 unidad1 = new Unidad1();
-            unidad1.MetodoAbierto("Newton-Raphson", txtFuncion.Text, double.Parse(txtTole.Text), int.Parse(txtIteracion.Text), double.Parse(txtXi.Text)
-                , 0);
-        }
-
-        private void btnSecante_Click(object sender, EventArgs e)
-        {
-            Unidad1 unidad1 = new Unidad1();
-            unidad1.MetodoAbierto("Secante", txtFuncion.Text, double.Parse(txtTole.Text), int.Parse(txtIteracion.Text), double.Parse(txtXi.Text)
-                , double.Parse(txtXd.Text));
-        }
-
-        private void lblXi_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        //UNIDAD 1 INICIO
+        
         private void btnBiseccion_Click_1(object sender, EventArgs e)
         {
             Unidad1 unidad1 = new Unidad1();
@@ -87,12 +50,14 @@ namespace Analisis_numerico
             unidad1.MetodoAbierto("Secante", txtFuncion.Text, double.Parse(txtTole.Text), int.Parse(txtIteracion.Text), double.Parse(txtXi.Text)
                 , double.Parse(txtXd.Text));
         }
+        //UNIDAD 1 FIN
 
+        //UNIDAD 2 INICIO
         private void btnGenerar_Click(object sender, EventArgs e)
         {
             if (!int.TryParse(txtDimension.Text, out int dimension))
             {
-                MessageBox.Show("Indique la dimesnion", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Indique la dimension", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -127,10 +92,55 @@ namespace Analisis_numerico
                 }
             }
         }
-
-        private void gBMatriz_Enter(object sender, EventArgs e)
+        private void btnCalcular_Click(object sender, EventArgs e)
         {
-
+            int dimension = int.Parse(txtDimension.Text);
+            double[,]matriz = GuardarMatriz(dimension);
+            MessageBox.Show("Matriz cargada con exito");
+            double[] vectorResultado = new double[dimension];
+            Unidad2 unidad2 = new Unidad2();
+            switch (cboxMetodo.SelectedIndex)
+            {
+                case 0:
+                    vectorResultado = unidad2.GaussJordan(dimension, matriz);
+                    break;
+                case 1:
+                    vectorResultado = unidad2.GaussSeidel(dimension, matriz);
+                    break;
+            }
+            string resultados = "";
+            if (vectorResultado != null)
+            {
+                for (int i = 0; i < vectorResultado.Length; i++)
+                {
+                    resultados += $"X{i + 1} =  {vectorResultado[i]}\n";
+                }
+            }
+            else
+            {
+                resultados = "Se paso de iteraciones.";
+            }
+            MessageBox.Show(resultados);
         }
+        private double[,] GuardarMatriz (int dimension)
+        {
+            double[,] matriz = new double[dimension, dimension + 1];
+            for (int row=0; row <dimension; row++)
+            {
+                for (int col = 0; col < dimension+1; col++)
+                {
+                    Control textBox =  gBMatriz.Controls.Find($"({row},{col})", true).First();
+
+                    if (!double.TryParse((textBox as TextBox).Text, out double numero))
+                    {
+                        return null;
+                    }
+
+                    matriz[row, col] = numero;
+                }
+            }
+            return matriz;
+        }
+        //UNIDAD 2 FIN
     }
 }
