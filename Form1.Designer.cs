@@ -47,13 +47,13 @@
             this.txtFuncion = new System.Windows.Forms.TextBox();
             this.lblFuncion = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.cboxMetodo = new System.Windows.Forms.ComboBox();
             this.btnCalcular = new System.Windows.Forms.Button();
             this.lblMetodo = new System.Windows.Forms.Label();
             this.gBMatriz = new System.Windows.Forms.GroupBox();
             this.btnGenerar = new System.Windows.Forms.Button();
             this.lblDimension = new System.Windows.Forms.Label();
             this.txtDimension = new System.Windows.Forms.TextBox();
-            this.cboxMetodo = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -250,6 +250,17 @@
             this.tabPage2.Text = "Unidad 2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // cboxMetodo
+            // 
+            this.cboxMetodo.FormattingEnabled = true;
+            this.cboxMetodo.Items.AddRange(new object[] {
+            "GAUSS-JORDAN",
+            "GAUSS-SEIDEL"});
+            this.cboxMetodo.Location = new System.Drawing.Point(446, 9);
+            this.cboxMetodo.Name = "cboxMetodo";
+            this.cboxMetodo.Size = new System.Drawing.Size(121, 32);
+            this.cboxMetodo.TabIndex = 7;
+            // 
             // btnCalcular
             // 
             this.btnCalcular.Location = new System.Drawing.Point(573, 9);
@@ -268,6 +279,14 @@
             this.lblMetodo.Size = new System.Drawing.Size(66, 24);
             this.lblMetodo.TabIndex = 5;
             this.lblMetodo.Text = "Metodo";
+            // 
+            // gBMatriz
+            // 
+            this.gBMatriz.Location = new System.Drawing.Point(8, 42);
+            this.gBMatriz.Name = "gBMatriz";
+            this.gBMatriz.Size = new System.Drawing.Size(996, 442);
+            this.gBMatriz.TabIndex = 8;
+            this.gBMatriz.TabStop = false;
             // 
             // btnGenerar
             // 
@@ -294,17 +313,6 @@
             this.txtDimension.Name = "txtDimension";
             this.txtDimension.Size = new System.Drawing.Size(100, 30);
             this.txtDimension.TabIndex = 0;
-            // 
-            // cboxMetodo
-            // 
-            this.cboxMetodo.FormattingEnabled = true;
-            this.cboxMetodo.Items.AddRange(new object[] {
-            "GAUSS-JORDAN",
-            "GAUSS-SEIDEL"});
-            this.cboxMetodo.Location = new System.Drawing.Point(446, 9);
-            this.cboxMetodo.Name = "cboxMetodo";
-            this.cboxMetodo.Size = new System.Drawing.Size(121, 32);
-            this.cboxMetodo.TabIndex = 7;
             // 
             // BaseForm
             // 
