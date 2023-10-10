@@ -1,4 +1,5 @@
-﻿using Calculus;
+﻿using Analisis_Numerico;
+using Calculus;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,9 +14,13 @@ namespace Analisis_numerico
 {
     public partial class BaseForm : Form
     {
+        public Graficador graficador { get; set; }
+
         public BaseForm()
         {
             InitializeComponent();
+
+            SetPanelGrafica();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -142,5 +147,113 @@ namespace Analisis_numerico
             return matriz;
         }
         //UNIDAD 2 FIN
+
+        //UNIDAD 3 INICIO
+        public List<double[]> PuntosCargados = new List<double[]>();
+        public void CargarPunto(double x, double y)
+        {
+            double[] punto = new double[2] { x, y };
+            PuntosCargados.Add(punto);
+        }
+        private void btnCargar_Click(object sender, EventArgs e)
+        {
+            Unidad3 unidad3 = new Unidad3();
+            if (txtBoxX.Text !="" && txtBoxY.Text != "")
+            {
+                //unidad3.CargarPunto(double.Parse(txtBoxX.Text), double.Parse(txtBoxY.Text));
+                CargarPunto(double.Parse(txtBoxX.Text), double.Parse(txtBoxY.Text));
+
+                Label puntoIngresado = new Label();
+                puntoIngresado.Text = $"({txtBoxX.Text} " + "," + $" {txtBoxY.Text})";
+                int cantElementos = PuntosCargados.Count();
+                int puntoY = (cantElementos - 1) * 17;
+                puntoIngresado.Location = new Point(0, puntoY);
+                puntoIngresado.Size = new Size(100, 16);
+                puntoIngresado.Font = new Font("Arial", 11);
+                panelIngresados.Controls.Add(puntoIngresado);
+                panelIngresados.Show();
+                txtBoxX.Clear();
+                txtBoxY.Clear();
+            }
+        }
+
+        private void SetPanelGrafica()
+        {
+            panelGraficador.Controls.Clear();
+            this.graficador = new Graficador();
+            panelGraficador.Controls.Add(graficador);
+            graficador.Dock = DockStyle.Fill;
+        }
+
+        private void btnBorrarU_Click(object sender, EventArgs e)
+        {
+            panelIngresados.Controls.RemoveAt(panelIngresados.Controls.Count - 1);
+            PuntosCargados.Remove(PuntosCargados.Last());
+        }
+
+        private void btnBorrarT_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnCalcula_Click(object sender, EventArgs e)
+        {
+            SetPanelGrafica();
+            int puntosEntrada = PuntosCargados.Count();
+            double SumX = 0;
+            double SumY = 0;
+            double SumXY = 0;
+            double SumX2 = 0;
+            //sumaX
+            foreach (var punto in PuntosCargados)
+            {
+                SumX += punto[0];
+            }
+            //sumaY
+            foreach (var punto in PuntosCargados)
+            {
+                SumY += punto[1];
+            }
+            //sumaXY
+            foreach (var punto in PuntosCargados)
+            {
+                SumXY += punto[0] * punto[1];
+            }
+            //sumaX2
+            foreach (var punto in PuntosCargados)
+            {
+                SumX2 += punto[0] * punto[0];
+            }
+            //Calculamos a1 y a0
+            double a1 = (puntosEntrada * SumXY - SumX * SumY) /
+                (puntosEntrada * SumX2 - Math.Pow(SumX,2));
+            double a0 = (SumY / puntosEntrada) - a1 * (SumX / puntosEntrada);
+            //Calculamos Sr y St
+            double St = 0;
+            double Sr = 0;
+            foreach (var punto in PuntosCargados)
+            {
+                St += Math.Pow(SumY / puntosEntrada - punto[1], 2);
+                Sr += Math.Pow(a1 * punto[0] + a0 - punto[1], 2);
+            }
+            //Calculamos la correlacion
+            double r = Math.Sqrt((St - Sr) / St) * 100;
+
+            string funcion = "y = " + a1 + "* x + " + a0;
+            if (r >= double.Parse(txtBoxTole.Text))
+            {
+                lblFResultado.Text = funcion;
+                lblCorrelacion.Text = r.ToString();
+                lblEfectividadResultado.Text = "El ajuste es aceptable.";
+                string funcionUsar = a1 + "*x+" + a0;
+                graficador.Graficar(PuntosCargados,funcionUsar);
+            }
+            else
+            {
+                lblFResultado.Text = funcion;
+                lblCorrelacion.Text = r.ToString();
+                lblEfectividadResultado.Text = "El ajuste no es aceptable.";
+            }
+        }
     }
 }
