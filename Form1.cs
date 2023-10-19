@@ -330,7 +330,7 @@ namespace Analisis_numerico
             else
             {
                 lblFResultado.Text = funcion;
-                lblCorrelacionResultado.Text = r.ToString();
+                lblCorrelacionResultado.Text = string.Format("{0:F4}", r);
                 lblEfectividadResultado.Text = "El ajuste no es aceptable.";
             }
         }
