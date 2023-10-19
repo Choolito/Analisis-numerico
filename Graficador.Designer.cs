@@ -39,8 +39,9 @@ namespace Analisis_Numerico
             // 
             this.pictureBoxAxis.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pictureBoxAxis.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxAxis.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pictureBoxAxis.Name = "pictureBoxAxis";
-            this.pictureBoxAxis.Size = new System.Drawing.Size(1000, 1000);
+            this.pictureBoxAxis.Size = new System.Drawing.Size(1167, 1154);
             this.pictureBoxAxis.TabIndex = 1;
             this.pictureBoxAxis.TabStop = false;
             // 
@@ -51,22 +52,25 @@ namespace Analisis_Numerico
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBoxContainer.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pictureBoxContainer.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxContainer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pictureBoxContainer.Name = "pictureBoxContainer";
-            this.pictureBoxContainer.Size = new System.Drawing.Size(1000, 1000);
+            this.pictureBoxContainer.Size = new System.Drawing.Size(1168, 1154);
             this.pictureBoxContainer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBoxContainer.TabIndex = 2;
             this.pictureBoxContainer.TabStop = false;
             // 
             // Graficador
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.pictureBoxContainer);
             this.Controls.Add(this.pictureBoxAxis);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Graficador";
-            this.Size = new System.Drawing.Size(1003, 1003);
+            this.Size = new System.Drawing.Size(1171, 1157);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAxis)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxContainer)).EndInit();
             this.ResumeLayout(false);

@@ -79,6 +79,8 @@
             this.btnCargar = new System.Windows.Forms.Button();
             this.lblIngresar = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.lblGrado = new System.Windows.Forms.Label();
+            this.txtGrado = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -435,6 +437,8 @@
             // 
             // grBoxEntrada
             // 
+            this.grBoxEntrada.Controls.Add(this.txtGrado);
+            this.grBoxEntrada.Controls.Add(this.lblGrado);
             this.grBoxEntrada.Controls.Add(this.panelIngresados);
             this.grBoxEntrada.Controls.Add(this.lblIngresados);
             this.grBoxEntrada.Controls.Add(this.btnBorrarT);
@@ -459,15 +463,15 @@
             // panelIngresados
             // 
             this.panelIngresados.BackColor = System.Drawing.Color.Silver;
-            this.panelIngresados.Location = new System.Drawing.Point(173, 157);
+            this.panelIngresados.Location = new System.Drawing.Point(173, 191);
             this.panelIngresados.Name = "panelIngresados";
-            this.panelIngresados.Size = new System.Drawing.Size(166, 315);
+            this.panelIngresados.Size = new System.Drawing.Size(166, 281);
             this.panelIngresados.TabIndex = 13;
             // 
             // lblIngresados
             // 
             this.lblIngresados.AutoSize = true;
-            this.lblIngresados.Location = new System.Drawing.Point(18, 157);
+            this.lblIngresados.Location = new System.Drawing.Point(18, 191);
             this.lblIngresados.Name = "lblIngresados";
             this.lblIngresados.Size = new System.Drawing.Size(149, 24);
             this.lblIngresados.TabIndex = 12;
@@ -475,7 +479,7 @@
             // 
             // btnBorrarT
             // 
-            this.btnBorrarT.Location = new System.Drawing.Point(345, 195);
+            this.btnBorrarT.Location = new System.Drawing.Point(345, 227);
             this.btnBorrarT.Name = "btnBorrarT";
             this.btnBorrarT.Size = new System.Drawing.Size(113, 32);
             this.btnBorrarT.TabIndex = 11;
@@ -485,7 +489,7 @@
             // 
             // btnBorrarU
             // 
-            this.btnBorrarU.Location = new System.Drawing.Point(345, 157);
+            this.btnBorrarU.Location = new System.Drawing.Point(345, 191);
             this.btnBorrarU.Name = "btnBorrarU";
             this.btnBorrarU.Size = new System.Drawing.Size(113, 32);
             this.btnBorrarU.TabIndex = 10;
@@ -590,6 +594,22 @@
             this.tabPage4.Text = "Unidad 4";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // lblGrado
+            // 
+            this.lblGrado.AutoSize = true;
+            this.lblGrado.Location = new System.Drawing.Point(107, 155);
+            this.lblGrado.Name = "lblGrado";
+            this.lblGrado.Size = new System.Drawing.Size(60, 24);
+            this.lblGrado.TabIndex = 14;
+            this.lblGrado.Text = "Grado:";
+            // 
+            // txtGrado
+            // 
+            this.txtGrado.Location = new System.Drawing.Point(173, 152);
+            this.txtGrado.Name = "txtGrado";
+            this.txtGrado.Size = new System.Drawing.Size(121, 30);
+            this.txtGrado.TabIndex = 15;
+            // 
             // BaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 24F);
@@ -667,6 +687,8 @@
         private System.Windows.Forms.Label lblCorrelacion;
         private System.Windows.Forms.Label lblFResultado;
         private System.Windows.Forms.Label lblFObtenida;
+        private System.Windows.Forms.TextBox txtGrado;
+        private System.Windows.Forms.Label lblGrado;
     }
 }
 

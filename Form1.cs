@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -150,7 +151,7 @@ namespace Analisis_numerico
 
         //UNIDAD 3 INICIO
         public List<double[]> PuntosCargados = new List<double[]>();
-        public void CargarPunto(double x, double y)
+        private void CargarPunto(double x, double y)
         {
             double[] punto = new double[2] { x, y };
             PuntosCargados.Add(punto);
@@ -176,7 +177,27 @@ namespace Analisis_numerico
                 txtBoxY.Clear();
             }
         }
-
+        private double[,] GenerarMatrizPolinomial(int grado, List<double[]> puntosCargados)
+        {
+            int dimension = grado + 1;
+            double[,] matriz = new double[dimension, dimension+1];
+            double x = 0;
+            double y = 0;
+            foreach (double[] punto in puntosCargados)
+            {
+                x = punto[0];
+                y = punto[1];
+                for (int fila=0; fila<dimension; fila++)
+                {
+                    for (int col= 0; col<dimension; col++)
+                    {
+                        matriz[fila, col] += Math.Pow(x, fila + col);//Calcular coeficientes de las incognitas.
+                    }
+                    matriz[fila, dimension] += y * Math.Pow(x, fila); //Calcular terminos independientes.
+                }
+            }
+            return matriz;
+        }
         private void SetPanelGrafica()
         {
             panelGraficador.Controls.Clear();
@@ -198,62 +219,121 @@ namespace Analisis_numerico
 
         private void btnCalcula_Click(object sender, EventArgs e)
         {
+            Unidad2 unidad2 = new Unidad2();
             SetPanelGrafica();
-            int puntosEntrada = PuntosCargados.Count();
-            double SumX = 0;
-            double SumY = 0;
-            double SumXY = 0;
-            double SumX2 = 0;
-            //sumaX
-            foreach (var punto in PuntosCargados)
-            {
-                SumX += punto[0];
-            }
-            //sumaY
-            foreach (var punto in PuntosCargados)
-            {
-                SumY += punto[1];
-            }
-            //sumaXY
-            foreach (var punto in PuntosCargados)
-            {
-                SumXY += punto[0] * punto[1];
-            }
-            //sumaX2
-            foreach (var punto in PuntosCargados)
-            {
-                SumX2 += punto[0] * punto[0];
-            }
-            //Calculamos a1 y a0
-            double a1 = (puntosEntrada * SumXY - SumX * SumY) /
-                (puntosEntrada * SumX2 - Math.Pow(SumX,2));
-            double a0 = (SumY / puntosEntrada) - a1 * (SumX / puntosEntrada);
-            //Calculamos Sr y St
             double St = 0;
             double Sr = 0;
-            foreach (var punto in PuntosCargados)
-            {
-                St += Math.Pow(SumY / puntosEntrada - punto[1], 2);
-                Sr += Math.Pow(a1 * punto[0] + a0 - punto[1], 2);
-            }
-            //Calculamos la correlacion
-            double r = Math.Sqrt((St - Sr) / St) * 100;
+            int puntosEntrada = PuntosCargados.Count();
+            string funcion = string.Empty;
 
-            string funcion = "y = " + a1 + "* x + " + a0;
+            if (cmbMetodo.SelectedIndex == 0)
+            {
+                double SumX = 0;
+                double SumY = 0;
+                double SumXY = 0;
+                double SumX2 = 0;
+                //sumaX
+                foreach (var punto in PuntosCargados)
+                {
+                    SumX += punto[0];
+                }
+                //sumaY
+                foreach (var punto in PuntosCargados)
+                {
+                    SumY += punto[1];
+                }
+                //sumaXY
+                foreach (var punto in PuntosCargados)
+                {
+                    SumXY += punto[0] * punto[1];
+                }
+                //sumaX2
+                foreach (var punto in PuntosCargados)
+                {
+                    SumX2 += punto[0] * punto[0];
+                }
+                //Calculamos a1 y a0
+                double a1 = (puntosEntrada * SumXY - SumX * SumY) /
+                    (puntosEntrada * SumX2 - Math.Pow(SumX, 2));
+                double a0 = (SumY / puntosEntrada) - a1 * (SumX / puntosEntrada);
+                //Calculamos Sr y St
+                foreach (var punto in PuntosCargados)
+                {
+                    St += Math.Pow(SumY / puntosEntrada - punto[1], 2);
+                    Sr += Math.Pow(a1 * punto[0] + a0 - punto[1], 2);
+                }
+
+                funcion = "y = " + string.Format("{0:F4}", a1) + "* x + " + string.Format("{0:F4}", a0);
+            }
+            else if (cmbMetodo.SelectedIndex == 1)
+            {
+                double[,] matriz = GenerarMatrizPolinomial(int.Parse(txtGrado.Text), PuntosCargados);
+                double[] gaussJordan = unidad2.GaussJordan(int.Parse(txtGrado.Text)+1, matriz);
+
+                //Inicio armado funcion
+                funcion = string.Empty;
+                string signo = string.Empty;
+                
+                for (int i = 0; i < gaussJordan.Count();i++)
+                {
+                    double ai = Math.Round(gaussJordan[i],4);
+                    if (i == 0 && ai!=0)
+                    {
+                        funcion = $"{ai}";
+                    }
+                    else if (i == 1 && ai!=0)
+                    {
+                        funcion = $"{ai}x {signo}" + funcion;
+                    }
+                    else
+                    {
+                        if (ai != 0)
+                        {
+                            funcion = $"{ai}x^{i} {signo}" + funcion;
+                        }
+                    }
+                    signo = ai > 0 ? "+" : string.Empty;
+                }
+                //Fin de armado funcion
+                //Calculamos St y Sr
+                double x = 0;
+                double y = 0;
+                double sumaY = 0;
+                foreach (double[] punto in PuntosCargados)
+                {
+                    sumaY += punto[1];
+                }
+                foreach (double[] punto in PuntosCargados)
+                {
+                    x = punto[0];
+                    y = punto[1];
+                    double suma = 0;
+                    for (int i = 0;i < gaussJordan.Count();i++)
+                    {
+                        suma += gaussJordan[i] * Math.Pow(x, i);
+                    }
+                    Sr += Math.Pow(suma - y, 2);
+                    St += Math.Pow(sumaY/puntosEntrada, 2);
+                }
+            }
+
+            double r = Math.Sqrt((St - Sr) / St);
+
+            //Mostrar
             if (r >= double.Parse(txtBoxTole.Text))
             {
                 lblFResultado.Text = funcion;
-                lblCorrelacion.Text = r.ToString();
+                lblCorrelacionResultado.Text = string.Format("{0:F4}",(r * 100));
                 lblEfectividadResultado.Text = "El ajuste es aceptable.";
-                string funcionUsar = a1 + "*x+" + a0;
-                graficador.Graficar(PuntosCargados,funcionUsar);
+                graficador.Graficar(PuntosCargados, funcion);
             }
             else
             {
                 lblFResultado.Text = funcion;
-                lblCorrelacion.Text = r.ToString();
+                lblCorrelacionResultado.Text = r.ToString();
                 lblEfectividadResultado.Text = "El ajuste no es aceptable.";
             }
         }
+
     }
 }
