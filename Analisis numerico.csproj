@@ -66,6 +66,7 @@
     <Compile Include="Unidad1.cs" />
     <Compile Include="Unidad2.cs" />
     <Compile Include="Unidad3.cs" />
+    <Compile Include="Unidad4.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

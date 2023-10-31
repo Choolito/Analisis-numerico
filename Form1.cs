@@ -335,5 +335,49 @@ namespace Analisis_numerico
             }
         }
 
+        //Fin unidad 3
+        //Inicio unidad 4
+
+        private void btnCalcularU4_Click(object sender, EventArgs e)
+        {
+            Unidad4 unidad4 = new Unidad4();
+            double area = 0;
+            switch (cmbMetodosU4.SelectedIndex)
+            {
+                case 0:
+                    area = unidad4.CalcularIntegralTrapeciosSimple(txtFxU4.Text, double.Parse(txtXiU4.Text), 
+                        double.Parse(txtXdU4.Text));
+                    break;
+                case 1:
+                    area = unidad4.CalcularIntegralTrapeciosMultiples(txtFxU4.Text, double.Parse(txtXiU4.Text), 
+                        double.Parse(txtXdU4.Text), int.Parse(txtCantInterU4.Text));
+                    break;
+                case 2:
+                    area = unidad4.CalcularIntegralSimpson1_3Simple(txtFxU4.Text, double.Parse(txtXiU4.Text),
+                        double.Parse(txtXdU4.Text));
+                    break;
+                case 3:
+                    area = unidad4.CalcularIntegralSimpson1_3Multiple(txtFxU4.Text, double.Parse(txtXiU4.Text),
+                        double.Parse(txtXdU4.Text), int.Parse(txtCantInterU4.Text));
+                    break;
+                case 4:
+                    area = unidad4.CalcularIntegralSimpson3_8(txtFxU4.Text, double.Parse(txtXiU4.Text),
+                        double.Parse(txtXdU4.Text));
+                    break;
+                case 5:
+                    area = unidad4.CalcularIntegralSimpson1_3MultipleConImpar(txtFxU4.Text, double.Parse(txtXiU4.Text),
+                        double.Parse(txtXdU4.Text), int.Parse(txtCantInterU4.Text));
+                    break;
+                    
+            }
+            if (area != double.NaN)
+            {
+                lblAreaResultadoU4.Text= string.Format("{0:F4}", area); 
+            }
+            else
+            {
+                lblAreaResultadoU4.Text = "Error";
+            }
+        }
     }
 }

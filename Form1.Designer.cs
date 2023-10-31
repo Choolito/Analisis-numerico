@@ -64,6 +64,8 @@
             this.lblFResultado = new System.Windows.Forms.Label();
             this.lblFObtenida = new System.Windows.Forms.Label();
             this.grBoxEntrada = new System.Windows.Forms.GroupBox();
+            this.txtGrado = new System.Windows.Forms.TextBox();
+            this.lblGrado = new System.Windows.Forms.Label();
             this.panelIngresados = new System.Windows.Forms.Panel();
             this.lblIngresados = new System.Windows.Forms.Label();
             this.btnBorrarT = new System.Windows.Forms.Button();
@@ -79,14 +81,30 @@
             this.btnCargar = new System.Windows.Forms.Button();
             this.lblIngresar = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.lblGrado = new System.Windows.Forms.Label();
-            this.txtGrado = new System.Windows.Forms.TextBox();
+            this.gpBoxEntradaU4 = new System.Windows.Forms.GroupBox();
+            this.gpBoxResultadoU4 = new System.Windows.Forms.GroupBox();
+            this.lblFxU4 = new System.Windows.Forms.Label();
+            this.lblXiU4 = new System.Windows.Forms.Label();
+            this.lblXdU4 = new System.Windows.Forms.Label();
+            this.lblCantInterU4 = new System.Windows.Forms.Label();
+            this.lblMetodoU4 = new System.Windows.Forms.Label();
+            this.lblAreaU4 = new System.Windows.Forms.Label();
+            this.txtFxU4 = new System.Windows.Forms.TextBox();
+            this.txtXiU4 = new System.Windows.Forms.TextBox();
+            this.txtXdU4 = new System.Windows.Forms.TextBox();
+            this.txtCantInterU4 = new System.Windows.Forms.TextBox();
+            this.cmbMetodosU4 = new System.Windows.Forms.ComboBox();
+            this.btnCalcularU4 = new System.Windows.Forms.Button();
+            this.lblAreaResultadoU4 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.grBoxSalida.SuspendLayout();
             this.grBoxEntrada.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            this.gpBoxEntradaU4.SuspendLayout();
+            this.gpBoxResultadoU4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -460,6 +478,22 @@
             this.grBoxEntrada.TabStop = false;
             this.grBoxEntrada.Text = "Datos de entrada";
             // 
+            // txtGrado
+            // 
+            this.txtGrado.Location = new System.Drawing.Point(173, 152);
+            this.txtGrado.Name = "txtGrado";
+            this.txtGrado.Size = new System.Drawing.Size(121, 30);
+            this.txtGrado.TabIndex = 15;
+            // 
+            // lblGrado
+            // 
+            this.lblGrado.AutoSize = true;
+            this.lblGrado.Location = new System.Drawing.Point(107, 155);
+            this.lblGrado.Name = "lblGrado";
+            this.lblGrado.Size = new System.Drawing.Size(60, 24);
+            this.lblGrado.TabIndex = 14;
+            this.lblGrado.Text = "Grado:";
+            // 
             // panelIngresados
             // 
             this.panelIngresados.BackColor = System.Drawing.Color.Silver;
@@ -586,6 +620,8 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.gpBoxResultadoU4);
+            this.tabPage4.Controls.Add(this.gpBoxEntradaU4);
             this.tabPage4.Location = new System.Drawing.Point(4, 33);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
@@ -594,21 +630,152 @@
             this.tabPage4.Text = "Unidad 4";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // lblGrado
+            // gpBoxEntradaU4
             // 
-            this.lblGrado.AutoSize = true;
-            this.lblGrado.Location = new System.Drawing.Point(107, 155);
-            this.lblGrado.Name = "lblGrado";
-            this.lblGrado.Size = new System.Drawing.Size(60, 24);
-            this.lblGrado.TabIndex = 14;
-            this.lblGrado.Text = "Grado:";
+            this.gpBoxEntradaU4.Controls.Add(this.btnCalcularU4);
+            this.gpBoxEntradaU4.Controls.Add(this.cmbMetodosU4);
+            this.gpBoxEntradaU4.Controls.Add(this.txtCantInterU4);
+            this.gpBoxEntradaU4.Controls.Add(this.txtXdU4);
+            this.gpBoxEntradaU4.Controls.Add(this.txtXiU4);
+            this.gpBoxEntradaU4.Controls.Add(this.txtFxU4);
+            this.gpBoxEntradaU4.Controls.Add(this.lblMetodoU4);
+            this.gpBoxEntradaU4.Controls.Add(this.lblCantInterU4);
+            this.gpBoxEntradaU4.Controls.Add(this.lblXdU4);
+            this.gpBoxEntradaU4.Controls.Add(this.lblXiU4);
+            this.gpBoxEntradaU4.Controls.Add(this.lblFxU4);
+            this.gpBoxEntradaU4.Location = new System.Drawing.Point(8, 6);
+            this.gpBoxEntradaU4.Name = "gpBoxEntradaU4";
+            this.gpBoxEntradaU4.Size = new System.Drawing.Size(490, 478);
+            this.gpBoxEntradaU4.TabIndex = 0;
+            this.gpBoxEntradaU4.TabStop = false;
+            this.gpBoxEntradaU4.Text = "Datos de entrada";
             // 
-            // txtGrado
+            // gpBoxResultadoU4
             // 
-            this.txtGrado.Location = new System.Drawing.Point(173, 152);
-            this.txtGrado.Name = "txtGrado";
-            this.txtGrado.Size = new System.Drawing.Size(121, 30);
-            this.txtGrado.TabIndex = 15;
+            this.gpBoxResultadoU4.Controls.Add(this.lblAreaResultadoU4);
+            this.gpBoxResultadoU4.Controls.Add(this.lblAreaU4);
+            this.gpBoxResultadoU4.Location = new System.Drawing.Point(504, 6);
+            this.gpBoxResultadoU4.Name = "gpBoxResultadoU4";
+            this.gpBoxResultadoU4.Size = new System.Drawing.Size(500, 478);
+            this.gpBoxResultadoU4.TabIndex = 1;
+            this.gpBoxResultadoU4.TabStop = false;
+            this.gpBoxResultadoU4.Text = "Resultado";
+            // 
+            // lblFxU4
+            // 
+            this.lblFxU4.AutoSize = true;
+            this.lblFxU4.Location = new System.Drawing.Point(6, 40);
+            this.lblFxU4.Name = "lblFxU4";
+            this.lblFxU4.Size = new System.Drawing.Size(48, 24);
+            this.lblFxU4.TabIndex = 0;
+            this.lblFxU4.Text = "F(x): ";
+            // 
+            // lblXiU4
+            // 
+            this.lblXiU4.AutoSize = true;
+            this.lblXiU4.Location = new System.Drawing.Point(20, 91);
+            this.lblXiU4.Name = "lblXiU4";
+            this.lblXiU4.Size = new System.Drawing.Size(34, 24);
+            this.lblXiU4.TabIndex = 1;
+            this.lblXiU4.Text = "Xi: ";
+            // 
+            // lblXdU4
+            // 
+            this.lblXdU4.AutoSize = true;
+            this.lblXdU4.Location = new System.Drawing.Point(156, 91);
+            this.lblXdU4.Name = "lblXdU4";
+            this.lblXdU4.Size = new System.Drawing.Size(40, 24);
+            this.lblXdU4.TabIndex = 2;
+            this.lblXdU4.Text = "Xd: ";
+            // 
+            // lblCantInterU4
+            // 
+            this.lblCantInterU4.AutoSize = true;
+            this.lblCantInterU4.Location = new System.Drawing.Point(6, 144);
+            this.lblCantInterU4.Name = "lblCantInterU4";
+            this.lblCantInterU4.Size = new System.Drawing.Size(227, 24);
+            this.lblCantInterU4.TabIndex = 3;
+            this.lblCantInterU4.Text = "Cantidad de subintervalos (n):";
+            // 
+            // lblMetodoU4
+            // 
+            this.lblMetodoU4.AutoSize = true;
+            this.lblMetodoU4.Location = new System.Drawing.Point(6, 187);
+            this.lblMetodoU4.Name = "lblMetodoU4";
+            this.lblMetodoU4.Size = new System.Drawing.Size(71, 24);
+            this.lblMetodoU4.TabIndex = 4;
+            this.lblMetodoU4.Text = "Metodo:";
+            // 
+            // lblAreaU4
+            // 
+            this.lblAreaU4.AutoSize = true;
+            this.lblAreaU4.Location = new System.Drawing.Point(16, 40);
+            this.lblAreaU4.Name = "lblAreaU4";
+            this.lblAreaU4.Size = new System.Drawing.Size(49, 24);
+            this.lblAreaU4.TabIndex = 5;
+            this.lblAreaU4.Text = "Area:";
+            // 
+            // txtFxU4
+            // 
+            this.txtFxU4.Location = new System.Drawing.Point(60, 37);
+            this.txtFxU4.Name = "txtFxU4";
+            this.txtFxU4.Size = new System.Drawing.Size(297, 30);
+            this.txtFxU4.TabIndex = 5;
+            // 
+            // txtXiU4
+            // 
+            this.txtXiU4.Location = new System.Drawing.Point(60, 85);
+            this.txtXiU4.Name = "txtXiU4";
+            this.txtXiU4.Size = new System.Drawing.Size(80, 30);
+            this.txtXiU4.TabIndex = 6;
+            // 
+            // txtXdU4
+            // 
+            this.txtXdU4.Location = new System.Drawing.Point(202, 85);
+            this.txtXdU4.Name = "txtXdU4";
+            this.txtXdU4.Size = new System.Drawing.Size(80, 30);
+            this.txtXdU4.TabIndex = 7;
+            // 
+            // txtCantInterU4
+            // 
+            this.txtCantInterU4.Location = new System.Drawing.Point(239, 141);
+            this.txtCantInterU4.Name = "txtCantInterU4";
+            this.txtCantInterU4.Size = new System.Drawing.Size(118, 30);
+            this.txtCantInterU4.TabIndex = 9;
+            // 
+            // cmbMetodosU4
+            // 
+            this.cmbMetodosU4.FormattingEnabled = true;
+            this.cmbMetodosU4.Items.AddRange(new object[] {
+            "Trapecios simples",
+            "Trapecios multiples",
+            "Simpson 1/3 simple",
+            "Simpson 1/3 multiple",
+            "Simpson 3/8",
+            "Simpson 1/3 multiple con impar S.3/8"});
+            this.cmbMetodosU4.Location = new System.Drawing.Point(83, 184);
+            this.cmbMetodosU4.Name = "cmbMetodosU4";
+            this.cmbMetodosU4.Size = new System.Drawing.Size(274, 32);
+            this.cmbMetodosU4.TabIndex = 10;
+            // 
+            // btnCalcularU4
+            // 
+            this.btnCalcularU4.Location = new System.Drawing.Point(83, 240);
+            this.btnCalcularU4.Name = "btnCalcularU4";
+            this.btnCalcularU4.Size = new System.Drawing.Size(274, 35);
+            this.btnCalcularU4.TabIndex = 11;
+            this.btnCalcularU4.Text = "Calcular";
+            this.btnCalcularU4.UseVisualStyleBackColor = true;
+            this.btnCalcularU4.Click += new System.EventHandler(this.btnCalcularU4_Click);
+            // 
+            // lblAreaResultadoU4
+            // 
+            this.lblAreaResultadoU4.AutoSize = true;
+            this.lblAreaResultadoU4.Location = new System.Drawing.Point(71, 40);
+            this.lblAreaResultadoU4.Name = "lblAreaResultadoU4";
+            this.lblAreaResultadoU4.Size = new System.Drawing.Size(15, 24);
+            this.lblAreaResultadoU4.TabIndex = 6;
+            this.lblAreaResultadoU4.Text = "-";
             // 
             // BaseForm
             // 
@@ -631,6 +798,11 @@
             this.grBoxSalida.PerformLayout();
             this.grBoxEntrada.ResumeLayout(false);
             this.grBoxEntrada.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.gpBoxEntradaU4.ResumeLayout(false);
+            this.gpBoxEntradaU4.PerformLayout();
+            this.gpBoxResultadoU4.ResumeLayout(false);
+            this.gpBoxResultadoU4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -689,6 +861,21 @@
         private System.Windows.Forms.Label lblFObtenida;
         private System.Windows.Forms.TextBox txtGrado;
         private System.Windows.Forms.Label lblGrado;
+        private System.Windows.Forms.GroupBox gpBoxResultadoU4;
+        private System.Windows.Forms.Label lblAreaU4;
+        private System.Windows.Forms.GroupBox gpBoxEntradaU4;
+        private System.Windows.Forms.Label lblMetodoU4;
+        private System.Windows.Forms.Label lblCantInterU4;
+        private System.Windows.Forms.Label lblXdU4;
+        private System.Windows.Forms.Label lblXiU4;
+        private System.Windows.Forms.Label lblFxU4;
+        private System.Windows.Forms.TextBox txtCantInterU4;
+        private System.Windows.Forms.TextBox txtXdU4;
+        private System.Windows.Forms.TextBox txtXiU4;
+        private System.Windows.Forms.TextBox txtFxU4;
+        private System.Windows.Forms.Button btnCalcularU4;
+        private System.Windows.Forms.ComboBox cmbMetodosU4;
+        private System.Windows.Forms.Label lblAreaResultadoU4;
     }
 }
 
