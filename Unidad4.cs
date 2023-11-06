@@ -110,7 +110,7 @@ namespace Analisis_numerico
                     if(n%2 != 0 && !simpson3_8Hecho)
                     {
                         double nuevoXi = xi + h * (n - 3);
-                        resultado = CalcularIntegralSimpson3_8(funcion, xi, xd);
+                        resultado = CalcularIntegralSimpson3_8(funcion, nuevoXi, xd);
                         n = n - 3;
                         simpson3_8Hecho = true;
                     }
